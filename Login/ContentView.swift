@@ -32,7 +32,8 @@ struct ContentView: View {
                             Text("E-mail:")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             TextField("Digite seu e-mail...", text: $email)
-                                .textFieldStyle(.roundedBorder)
+                                .padding(.all)
+                                .overlay(RoundedRectangle(cornerRadius: 8.0).strokeBorder(Color("lightPurple"), style: StrokeStyle(lineWidth: 1.0)))
                                 .padding(.bottom, 20)
                             HStack {
                                 Text("Senha:")
@@ -43,7 +44,8 @@ struct ContentView: View {
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                             }
                             SecureField("Digite sua senha...", text: $senha)
-                                .textFieldStyle(.roundedBorder)
+                                .padding(.all)
+                                .overlay(RoundedRectangle(cornerRadius: 8.0).strokeBorder(Color("lightPurple"), style: StrokeStyle(lineWidth: 1.0)))
                                 .padding(.bottom, 20)
                             HStack {
                                 Text("Lembrar minha senha")
@@ -74,12 +76,12 @@ struct ContentView: View {
                             .padding()
                             .background(.black)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
-                            .padding(.bottom, 10)
+                            .padding(.bottom, 5)
                             HStack {
                                 Text("Ja possui uma conta?")
                                     .font(.caption)
                                 Text("Entre")
-                                    .font(.caption)
+                                    .font(.callout)
                                     .foregroundColor(.blue)
                             }
                         }
@@ -87,7 +89,7 @@ struct ContentView: View {
                     }
                     .fixedSize(horizontal: false, vertical: true)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .padding(.bottom, -38)
+                    .padding(.bottom, -15)
                 }
                 .frame(minHeight: reader.size.height)
             }
