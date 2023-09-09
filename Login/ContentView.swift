@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var email = ""
-    @State private var senha = ""
+    @State private var email = "thiago.you@puc.com.br"
+    @State private var senha = "thiago.you"
     @State private var rememberPassword = true
     
     var body: some View {
         GeometryReader { reader in
             ZStack {
-                Color.blue.ignoresSafeArea()
+                Color("darkPurple").ignoresSafeArea()
                 VStack {
                     Spacer()
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundColor(.red)
+                    Image("logo")
+                        .resizable()
+                        .frame(width: 250, height: 250)
                     Spacer()
                     ZStack {
                         Color.white.ignoresSafeArea()
@@ -42,7 +42,7 @@ struct ContentView: View {
                                     .foregroundColor(.blue)
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                             }
-                            TextField("Digite sua senha...", text: $senha)
+                            SecureField("Digite sua senha...", text: $senha)
                                 .textFieldStyle(.roundedBorder)
                                 .padding(.bottom, 20)
                             HStack {
@@ -59,7 +59,7 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity)
                             .foregroundColor(.white)
                             .padding()
-                            .background(.blue)
+                            .background(Color("darkPurple"))
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                             .padding(.bottom, 10)
                             Button {
