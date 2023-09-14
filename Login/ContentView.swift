@@ -15,7 +15,6 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { reader in
             ZStack {
-                Color("darkPurple").ignoresSafeArea()
                 VStack {
                     Spacer()
                     Image("logo")
@@ -39,9 +38,10 @@ struct ContentView: View {
                                 Text("Senha:")
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 Spacer()
-                                Text("Recuperar Senha")
-                                    .foregroundColor(.blue)
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                Button("Recuperar Senha") {
+                                    
+                                }
+                                .frame(maxWidth: .infinity, alignment: .trailing)
                             }
                             SecureField("Digite sua senha...", text: $senha)
                                 .padding(.all)
@@ -61,7 +61,7 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity)
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color("darkPurple"))
+                            .background(Color("darkerPurple"))
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                             .padding(.bottom, 10)
                             Button {
@@ -76,22 +76,28 @@ struct ContentView: View {
                             .padding()
                             .background(.black)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
-                            .padding(.bottom, 5)
-                            HStack {
-                                Text("Ja possui uma conta?")
-                                    .font(.caption)
-                                Text("Entre")
-                                    .font(.callout)
-                                    .foregroundColor(.blue)
+                            .padding(.bottom, 10)
+                            Button(action: {}) {
+                                HStack {
+                                    Text("Ja possui uma conta?")
+                                        .font(.caption)
+                                        .foregroundColor(.black)
+                                    Text("Entre")
+                                        .font(.callout)
+                                        .foregroundColor(.blue)
+                                }
                             }
+                            .padding(.bottom, 10)
                         }
                         .padding()
                     }
                     .fixedSize(horizontal: false, vertical: true)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .padding(.bottom, -15)
                 }
                 .frame(minHeight: reader.size.height)
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [Color("darkerPurple"), Color("darkPurple"), .white]), startPoint: .top, endPoint: .bottom)
+                )
             }
         }
     }
